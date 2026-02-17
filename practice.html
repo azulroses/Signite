@@ -4,32 +4,27 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ฝึกทำ — Signite</title>
-  <link rel="stylesheet" href="CSS/main.css"/>
-  <link rel="stylesheet" href="CSS/style.css"/>
+  <link rel="stylesheet" href="main.css"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body class="practice-page">
 
-  <!-- ปุ่มย้อนกลับ -->
   <a href="vocabset.html" class="btn-back" title="กลับหน้าชุดคำศัพท์">&#8592;</a>
 
-  <!-- Logo มุมขวาบน -->
   <div class="pr-logo">
-    <img src="IMG/Logo_signite.svg" alt="Signite" height="50px"/>
+    <img src="IMG/Logo_signite.svg" alt="Signite" height="60px"/>
     <p class="pr-subtitle">เว็บแอปพลิเคชันเพื่อการศึกษาภาษามือไทย</p>
   </div>
 
-  <!-- Main layout -->
   <main class="pr-main">
 
-    <!-- LEFT: camera + controls -->
     <div class="panel-left">
 
-      <!-- Current task -->
       <div class="task-label">
+        <span class="task-icon">🎯</span>
         <span id="taskName">โจทย์ : เลข 0</span>
       </div>
 
-      <!-- Camera area -->
       <div class="camera-wrap">
         <div class="corner corner--tl"></div>
         <div class="corner corner--tr"></div>
@@ -39,41 +34,29 @@
         <video id="video" playsinline autoplay muted></video>
         <canvas id="canvas"></canvas>
 
-        <!-- Gesture label top-center -->
         <div id="gesture-label"></div>
 
-        <!-- Success flash -->
         <div class="success-flash" id="successFlash"></div>
 
-        <!-- Placeholder -->
         <div class="camera-placeholder" id="placeholder">
           <div class="cam-icon-wrap">📷</div>
           <div class="placeholder-text">กดปุ่ม "ฝึกทำ" เพื่อเปิดกล้อง</div>
         </div>
 
-        <!-- Status bar -->
         <div class="status-bar">
           <div class="status-dot" id="statusDot"></div>
           <span id="statusText">รอการเชื่อมต่อ</span>
         </div>
       </div>
 
-      <!-- Button row: เรียนรู้ | ฝึกทำ | ไปท่าต่อไป -->
       <div class="btn-row">
-        <button class="btn-learn" id="btnLearn" onclick="openLearnModal()">
-          เรียนรู้
-        </button>
-        <button class="btn-practice" id="btnPractice" onclick="toggleCamera()">
-          ฝึกทำ
-        </button>
-        <button class="btn-next" id="btnNext" onclick="skipToNext()" disabled>
-          ไปท่าต่อไป →
-        </button>
+        <button class="btn-learn" id="btnLearn" onclick="openLearnModal()">เรียนรู้</button>
+        <button class="btn-practice" id="btnPractice" onclick="toggleCamera()">ฝึกทำ</button>
+        <button class="btn-next" id="btnNext" onclick="skipToNext()" disabled>ไปท่าต่อไป →</button>
       </div>
 
     </div>
 
-    <!-- RIGHT: checklist -->
     <div class="panel-right">
       <div class="checklist-header">รายการท่าทาง</div>
       <div class="checklist-body">
@@ -83,18 +66,14 @@
 
   </main>
 
-  <!-- ── Modal วิดีโอเรียนรู้ ── -->
   <div class="modal-overlay" id="learnModal" onclick="closeLearnModal(event)">
     <div class="modal-box">
       <button class="modal-close" onclick="closeLearnModalBtn()">✕</button>
       <h3 id="modalTitle">สาธิตท่า</h3>
-      <div class="modal-video-wrap" id="modalVideoWrap">
-        <!-- video หรือข้อความ no-video จะถูก inject ที่นี่ -->
-      </div>
+      <div class="modal-video-wrap" id="modalVideoWrap"></div>
     </div>
   </div>
 
-  <!-- MediaPipe CDN -->
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3.1640029074/camera_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.3.1620248257/drawing_utils.js" crossorigin="anonymous"></script>

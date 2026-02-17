@@ -54,7 +54,7 @@
 ══════════════════════════════════════════════════════ */
 .vs-page {
   min-height: 100vh;
-  background: url('../IMG/home_bg.svg') no-repeat bottom center / cover;
+  background: url('IMG/home_bg.svg') no-repeat bottom center / cover;
   overflow-x: hidden;
 }
 
